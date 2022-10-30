@@ -1,3 +1,10 @@
+/* 
+ *  App Name:   MidTerm Project - The Favourite Book List App
+ *  Author:     Jack Que (301220028)
+ *  File Name:  books.js
+ *  Date:       October 29, 2022
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -14,6 +21,7 @@ router.get('/', (req, res, next) => {
     if (err) {
       return console.error(err);
     } else {
+      // Show main page
       res.render('books/index', {
         title: 'Books',
         books: books
@@ -30,6 +38,7 @@ router.get('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
 
+    // Show add book page
     res.render('books/details', {
       title: 'Add Book',
       books: ''
@@ -44,6 +53,7 @@ router.post('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     
+    // Instantiate new book
     let newBook = book({
       "Title": req.body.title,
       "Description": '',
@@ -52,6 +62,7 @@ router.post('/add', (req, res, next) => {
       "Genre": req.body.genre
     });
 
+    // Save new book to database
     book.create(newBook, (err) => {
       if (err) {
         console.log(err);
@@ -71,6 +82,7 @@ router.get('/:id', (req, res, next) => {
      *****************/
 
     let id = req.params.id;
+    // Search database using book id
     book.findById(id, (err, bookToUpdate) => {
       res.render('books/details', {
         title: 'Edit Book',
@@ -89,6 +101,7 @@ router.post('/:id', (req, res, next) => {
 
     let id = req.params.id;
 
+    // Instantiate updated book
     let updatedBook = book({
       "_id": id,
       "Title": req.body.title,
@@ -98,6 +111,7 @@ router.post('/:id', (req, res, next) => {
       "Genre": req.body.genre
     });
 
+    // Update book in database
     book.updateOne({_id: id}, updatedBook, (err) => {
       if (err) {
         console.log(err);
@@ -126,5 +140,5 @@ router.get('/delete/:id', (req, res, next) => {
     });
 });
 
-
+// Export module
 module.exports = router;
