@@ -3,7 +3,8 @@
   "description": "## Welcome to the MidTerm Project - the Favourite Book List App",
   "main": "server.js",
   "authors": [
-    "Tom Tsiliopoulos"
+    "Tom Tsiliopoulos",
+    "Jack Que"
   ],
   "license": "ISC",
   "keywords": [

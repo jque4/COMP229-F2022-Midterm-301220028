@@ -1,5 +1,5 @@
 {
-  "name": "comp229-f2020-midterm",
+  "name": "comp229-f2022-midterm",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -52,7 +52,7 @@
     "ExpressJS",
     "EJS"
   ],
-  "author": "Your Name Goes Here",
+  "author": "Jack Que",
   "license": "ISC",
   "bugs": {
     "url": ""
